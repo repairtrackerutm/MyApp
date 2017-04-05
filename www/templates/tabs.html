@@ -1,0 +1,19 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+
+  <ion-tab title="Inbox" icon-off="icon ion-ios-download-outline" icon-on="icon ion-chatbubbles" href="#/tab/smsinbox">
+    <ion-nav-view name="tab-sms-inbox"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="outBox" icon-off="icon ion-ios-upload-outline" icon-on="icon ion-chatbubbles" href="#/tab/smsoutbox">
+    <ion-nav-view name="tab-sms-outbox"></ion-nav-view>
+  </ion-tab>
+
+
+
+</ion-tabs>
