@@ -10,7 +10,7 @@
     <div>list of items</div>
     <ion-refresher
             pulling-text="Pull to refresh..."
-            on-refresh="refresh()">
+            on-refresh="getInboxMsg()">
     </ion-refresher>
     <ion-list type="card">
       <ion-item ng-repeat="inboxMessage in inboxMessages">
@@ -21,11 +21,18 @@
          {{inboxMessages.fromContactName}} <i class="icon ion-ios-telephone-outline"></i><small>{{inboxMessage.fromPhoneNumber}}</small>
         </div>
         <div>
-          <h4>{{inboxMessage.message}}</h4>
+          <h4 ng-click="viewSms(inboxMessage.id)">{{inboxMessage.message}}</h4>
         </div>
       </ion-item>
     </ion-list>
  <span ng-if="$root.useNetwork">
       <ion-spinner  icon="android"></ion-spinner>
     </span>
+    <span ng-if="havePrevInboxMsg" ng-init="havePrevInboxMsg=false">
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="prevInboxMsgPage()">Back</a>
+      </span>
+    <span ng-if="haveNextInboxMsg" ng-init="haveNextInboxMsg=false">
+      <a class="button icon-right ion-chevron-right button-clear button-dark" ng-click="nextInboxMsgPage()">next</a>
+      </span>
+
 </ion-view>

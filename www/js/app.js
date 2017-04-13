@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','toaster'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','toaster', 'ngAnimate','ngResource','lbServices'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','t
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,LoopBackResourceProvider) {
+
+  LoopBackResourceProvider.setUrlBase('https://syncusx.herokuapp.com/api');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

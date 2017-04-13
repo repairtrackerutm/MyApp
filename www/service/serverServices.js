@@ -3,7 +3,7 @@
  * used by All Contollers to make Server Query,return a promise a success or failure
  * for notification used webSocket i.e socket i.o
  */
-starter.service("serverServices", function ($http, $q,toaster,$rootScope) {
+starter.service("serverServices", function ($http, $q,toaster,$rootScope,toaster) {
     return {
         get: function(uri) {
             $rootScope.useNetwork=true;
@@ -16,7 +16,7 @@ starter.service("serverServices", function ($http, $q,toaster,$rootScope) {
                     return deferred.promise;
 
                 }, function(error) {
-
+                    toaster.pop('error', error);
                     // something went wrong
                    // console.log(error.data);
                     $rootScope.useNetwork=false;
